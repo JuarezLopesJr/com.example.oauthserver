@@ -7,7 +7,7 @@ val koinVersion: String by project
 plugins {
     application
     kotlin("jvm") version "1.6.0"
-                id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
 }
 
 group = "com.example"
@@ -22,6 +22,10 @@ application {
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+}
+// Heroku build params for Ktor 2.0.0-beta-1 https://ktor.io/docs/eap/heroku.html#deploy-app
+tasks {
+    create("stage").dependsOn("installDist")
 }
 
 dependencies {

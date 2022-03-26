@@ -1,0 +1,1 @@
+web: ./build/install/com.example.oauthserver/bin/com.example.oauthserver
